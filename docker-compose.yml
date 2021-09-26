@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - 8003:8000
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=8000
+      - ACCOUNTS_GRAPHQL_API_URL=http://accounts-graphql-api:8000
+      - TRANSACTIONS_GRAPHQL_API_URL=http://transactions-graphql-api:8000
+    networks:
+      finando:
+        aliases:
+          - gateway-graphql-api
+networks:
+  finando:
+    name: finando

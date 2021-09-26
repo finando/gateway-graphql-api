@@ -1,0 +1,80 @@
+{
+  "name": "gateway-graphql-api",
+  "description": "An application that serves as a gateway to all GraphQL APIs.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:finando/gateway-graphql-api.git"
+  },
+  "contributors": [
+    {
+      "name": "Alexander Zakharov (azaxarov)",
+      "email": "alzak@envisage.no"
+    }
+  ],
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 14.17.0"
+  },
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "run-s serve:dev",
+    "debug": "run-s serve:debug",
+    "serve:dev": "NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/app.ts",
+    "serve:prod": "node dist/src/app.js",
+    "serve:debug": "NODE_ENV=development ts-node-dev --inspect -r tsconfig-paths/register src/app.ts",
+    "build": "run-s clean:dist typescript:compile",
+    "typescript:compile": "tsc",
+    "lint:project": "eslint --ext ts,js,json ./",
+    "lint:project:fix": "eslint --ext ts,js,json ./ --fix",
+    "lint:staged:fix": "eslint --ext ts,js,json --fix",
+    "clean:dist": "rm -rf dist",
+    "clean:coverage": "rm -rf coverage",
+    "test": "run-s clean:coverage test:jest",
+    "test:coverage": "run-s clean:coverage test:jest:coverage",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "jest --passWithNoTests --coverage",
+    "test:watch": "jest --passWithNoTests --watchAll",
+    "commit": "git-cz",
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@apollo/gateway": "^0.42.0",
+    "apollo-server": "^3.3.0",
+    "graphql": "^15.6.0",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.6",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "jest": "^27.2.1",
+    "lint-staged": "^11.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.5",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.3"
+  }
+}

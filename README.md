@@ -20,7 +20,7 @@ An application that serves as a gateway to all GraphQL APIs.
 - Build a Docker container using the following command:
   - `docker build -t gateway-graphql-api .`
 - Run the container using the following comand:
-  - `docker run -d -p 8003:8000 -e NODE_ENV -e HOST -e PORT gateway-graphql-api`
+  - `docker run -d -p 8003:8000 -e NODE_ENV -e HOST -e PORT -e ACCOUNTS_GRAPHQL_API_URL -e TRANSACTIONS_GRAPHQL_API_URL gateway-graphql-api`
 
 #### Running application using Docker Compose
 
