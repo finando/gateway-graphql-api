@@ -45,7 +45,7 @@
     }
   },
   "dependencies": {
-    "@apollo/gateway": "^0.48.0",
+    "@apollo/gateway": "^0.50.0",
     "apollo-server": "^3.5.0",
     "graphql": "^16.3.0",
     "uuid": "^8.3.2",
